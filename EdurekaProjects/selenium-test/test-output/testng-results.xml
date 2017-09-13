@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="40958" started-at="2017-03-21T07:40:38Z" finished-at="2017-03-21T07:41:19Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="40958" started-at="2017-03-21T07:40:38Z" finished-at="2017-03-21T07:41:19Z">
+      <class name="edureka.selenium_test.DataTestApp">
+        <test-method status="PASS" signature="BeforeNote()[pri:0, instance:edureka.selenium_test.DataTestApp@482f8f11]" name="BeforeNote" is-config="true" duration-ms="16" started-at="2017-03-21T00:40:38Z" finished-at="2017-03-21T00:40:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeNote -->
+        <test-method status="PASS" signature="testWithExcelData(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:edureka.selenium_test.DataTestApp@482f8f11]" name="testWithExcelData" duration-ms="7495" started-at="2017-03-21T00:40:39Z" data-provider="getDataFromExcelSheet" finished-at="2017-03-21T00:40:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user2@yahoo.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[nmijln]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testWithExcelData -->
+        <test-method status="PASS" signature="testWithExcelData(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:edureka.selenium_test.DataTestApp@482f8f11]" name="testWithExcelData" duration-ms="10858" started-at="2017-03-21T00:40:46Z" data-provider="getDataFromExcelSheet" finished-at="2017-03-21T00:40:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user3@redffmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[xdtfghio]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testWithExcelData -->
+        <test-method status="PASS" signature="testWithExcelData(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:edureka.selenium_test.DataTestApp@482f8f11]" name="testWithExcelData" duration-ms="9768" started-at="2017-03-21T00:40:57Z" data-provider="getDataFromExcelSheet" finished-at="2017-03-21T00:41:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user4@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[vbhnjmk]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testWithExcelData -->
+        <test-method status="PASS" signature="testWithExcelData(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:edureka.selenium_test.DataTestApp@482f8f11]" name="testWithExcelData" duration-ms="12203" started-at="2017-03-21T00:41:07Z" data-provider="getDataFromExcelSheet" finished-at="2017-03-21T00:41:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user1@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[nvjhgihl]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testWithExcelData -->
+      </class> <!-- edureka.selenium_test.DataTestApp -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

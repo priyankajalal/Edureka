@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [DataDriven]">
+  <parameter name="password" value="Advit123$"/>
+  <parameter name="url" value="http://www.facebook.com"/>
+  <parameter name="username" value="Garvit@gmail.com"/>
+  <test name="Practice(failed)">
+    <parameter name="password" value="Advit123$"/>
+    <parameter name="url" value="http://www.facebook.com"/>
+    <parameter name="username" value="Garvit@gmail.com"/>
+    <groups>
+      <run>
+        <include name="tier-1"/>
+        <include name="tier-2"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="PriyankaTestNgDependency.OnGroups">
+        <methods>
+          <include name="test2"/>
+        </methods>
+      </class> <!-- PriyankaTestNgDependency.OnGroups -->
+    </classes>
+  </test> <!-- Practice(failed) -->
+</suite> <!-- Failed suite [DataDriven] -->

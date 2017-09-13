@@ -1,0 +1,27 @@
+-- VERSION_4
+-- START DISKCACHE_2
+C:\projects\EdurekaProjects\.metadata\.plugins\org.eclipse.core.resources\.projects\PythonSelenium\com.python.pydev.analysis\v2_indexcache
+facebookTest|1488910232411003000|C:\projects\EdurekaProjects\PythonSelenium\facebookTest.py
+-- END DISKCACHE
+-- START DICTIONARY
+3
+3=TestPython
+1=facebookTest
+2=TestPython.setUp
+-- END DICTIONARY
+-- START TREE 1
+1
+tes|1|TestPython!9@
+-- END TREE
+-- START TREE 2
+9
+acc|1|accept_next_alert!2&11@
+bas|1|base_url!2&11@
+clo|1|close_alert_and_get_its_text!3&10@
+dri|1|driver!2&11@
+is_|2|is_element_present!3&10@is_alert_present!3&10@
+set|1|setUp!3&10@
+tea|1|tearDown!3&10@
+tes|1|test_python!3&10@
+ver|1|verificationErrors!2&11@
+-- END TREE

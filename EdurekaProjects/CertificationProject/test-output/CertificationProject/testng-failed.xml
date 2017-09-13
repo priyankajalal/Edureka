@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [CertificationProject]">
+  <parameter name="searchInput" value="Selenium"/>
+  <parameter name="password" value="demo123"/>
+  <parameter name="postBody" value="Automation test in Selenium"/>
+  <parameter name="browser" value="chrome"/>
+  <parameter name="postTitle" value="Selenium test2"/>
+  <parameter name="userName" value="admin"/>
+  <parameter name="url" value="http://demosite.center/wordpress/wp-login.php"/>
+  <parameter name="tags" value="Selenium,test2,Automation"/>
+  <test name="Edureka-Project(failed)">
+    <parameter name="searchInput" value="Selenium"/>
+    <parameter name="password" value="demo123"/>
+    <parameter name="postBody" value="Automation test in Selenium"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="postTitle" value="Selenium test2"/>
+    <parameter name="userName" value="admin"/>
+    <parameter name="url" value="http://demosite.center/wordpress/wp-login.php"/>
+    <parameter name="tags" value="Selenium,test2,Automation"/>
+    <classes>
+      <class name="com.edureka.certification.test.ExecuteTest">
+        <methods>
+          <include name="setup"/>
+          <include name="trashCheckedPosts"/>
+          <include name="addNewPostTest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.edureka.certification.test.ExecuteTest -->
+    </classes>
+  </test> <!-- Edureka-Project(failed) -->
+</suite> <!-- Failed suite [CertificationProject] -->

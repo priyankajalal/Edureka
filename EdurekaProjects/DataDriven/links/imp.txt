@@ -1,0 +1,5 @@
+***** Sellenium Dependency Examples
+http://www.mkyong.com/unittest/testng-tutorial-7-dependency-test/
+
+*******Test Senarioes for different things///Can be asked in interview******
+http://artoftesting.com/manualTesting/login.html

@@ -1,0 +1,70 @@
+package com.edureka.certification.test;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import common.DriverManager;
+import common.LoginPage;
+import utils.DriverUtil;
+
+public class AddPostTest {	
+
+	@Test
+	@Parameters({ "userName", "password", "url", "browser" })
+	public void addNewPost(String userName, String password, String url, String browser) throws InterruptedException {
+		
+		WebDriver driver = DriverManager.getDriver(browser);
+		driver.get(url);
+		
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		LoginPage login = new LoginPage(driver, userName, password);
+		
+		//Click on Post
+		DriverUtil.getWhenVisible(driver, By.linkText("Posts")).click();
+		
+		//Click on Add Post
+		DriverUtil.getWhenVisible(driver, By.cssSelector(".add-new-h2")).click();
+		
+		//Write on title field
+		WebElement titleElement = DriverUtil.getWhenVisible(driver, By.xpath("//*[@id='title-prompt-text']"));
+		//WebElement addNewTitleElement = driver.findElement(By.xpath("//*[@id='title-prompt-text']"));
+		titleElement.sendKeys("Good Morning");
+
+		//Thread.sleep(3000);"
+		DriverUtil.getWhenVisible(driver, By.id("content-html")).click();
+		//Write on Body of the post
+		WebElement postBodyElement = DriverUtil.getWhenVisible(driver, By.id("content"));
+		DriverUtil.typeText(postBodyElement,driver,"Hello Testers" );
+		
+		//WebElement postBodyElement = driver.findElement(By.xpath("//*[@id='wp-content-editor-container']/child::textarea"));
+		//WebElement postBodyElement = driver.findElement(By.id("content"));
+		//postBodyElement.sendKeys("Hello Testers");
+		
+		
+		
+		
+		// Asking for parent Window and saving it in a variable parentHandle
+//		String parentHandle = driver.getWindowHandle();
+//
+//		Thread.sleep(3000);
+//		// Preview the Post
+//		WebElement previewElement = driver.findElement(By.id("post-preview"));
+//		previewElement.click();
+//
+//		Thread.sleep(3000);
+//
+//		for (String winHandle : driver.getWindowHandles()) {
+//			if (!winHandle.equals(parentHandle)) {
+//				driver.switchTo().window(winHandle);
+//				Thread.sleep(3000);
+//				driver.close();
+//			}
+//		}
+	}
+
+}

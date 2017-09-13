@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="CertificationProject">
+	<test name="Edureka-Project">
+		<parameter name="browser" value="chrome"></parameter>
+		<parameter name="userName" value="admin"></parameter>
+		<parameter name="password" value="demo123"></parameter>
+		<parameter name="url"
+			value="http://demosite.center/wordpress/wp-login.php"></parameter>
+		<parameter name="postTitle" value="Selenium test2"></parameter>
+		<parameter name="postBody" value="Automation test in Selenium"></parameter>
+		<parameter name="tags" value="Selenium,test2,Automation"></parameter>
+		<parameter name="searchInput" value="Selenium"></parameter>
+		<classes>
+			<class name="com.edureka.certification.test.ExecuteTest" />
+		</classes>
+	</test>
+</suite> 

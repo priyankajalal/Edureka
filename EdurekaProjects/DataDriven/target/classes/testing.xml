@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestDependency">
+
+  <test name="TestCase1">
+
+	<classes>
+	  <class
+		name="vinod.test.TestNgDependencyExample">
+	  </class>
+	  
+	</classes>
+
+  </test>
+
+</suite>

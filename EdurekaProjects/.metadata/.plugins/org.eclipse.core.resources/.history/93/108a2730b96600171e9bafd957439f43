@@ -1,0 +1,20 @@
+from modules import symbolsstats_weekly
+import modules.analysis_watchlist as analysis_watchlist
+from modules import dataimport
+import datetime
+from  dao.dbutil import symboldata
+
+dataimport.import_fromdb_tomongo_date("2017-07-10")
+exit()
+#dataimport.importDailyData(["RAND.AS"],datetime.date.today(),datetime.date.today(),"daily_data")
+#exit()
+
+livedataimport.init_withoutrepeat()
+
+exit()
+sm = symboldata()  
+list_error_symbol = sm.get_error_symbols()
+sm.get_alletfs()
+dataimport.specificimport(list_error_symbol)
+#analysis_watchlist.init()
+#symbolsstats_weekly.specific_symbols(["MSFT"])

@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name = "DataDriven">
+	<test name = "Practice">
+		<parameter name="username" value="Garvit@gmail.com"></parameter>
+		<parameter name="password" value="Advit123$"></parameter>		
+		<parameter name="url" value="http://www.facebook.com"></parameter>
+		<groups>
+			<run>
+				<include name = "tier-1"/>
+				<include name = "tier-2"/>
+			</run>
+		
+		</groups>
+		<classes>
+			<class name = "PriyankaTestNgDependency.OnGroups" />
+		</classes>
+	</test>
+</suite> 

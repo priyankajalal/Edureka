@@ -1,0 +1,27 @@
+import pandas as pd
+import pandas_datareader.data as wb
+import MySQLdb
+import os
+from MyConfig import MyConfig as cfg
+
+db = MySQLdb.connect(host=cfg.mysqldb_host, user=cfg.mysqldb_user, passwd=cfg.mysqldb_passwd,db=cfg.mysqldb_db)
+# http://eoddata.com/download.aspx?e=AMEX
+# df = pd.read_csv("eod_data")
+path = "eod_data/"
+files = os.listdir(path)
+
+sql=""""
+truncate hist_prices
+"""
+
+for file in files:
+    full_path = path + file
+    df = pd.read_csv(full_path)
+    df.to_sql(con=db, name='hist_prices', if_exists='append', flavor='mysql')
+
+
+sql=""""
+insert into symbolshistorical(symbol,open,high,low,close,date,volume,actualclose)
+select 
+symbol,open,high,low,close,date_format(str_to_date(date,'%d-%b-%Y'),'%Y-%m-%d') as date,volume,close from hist_prices
+"""

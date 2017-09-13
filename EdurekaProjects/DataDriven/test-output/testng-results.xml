@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="12916" started-at="2017-04-01T09:11:33Z" finished-at="2017-04-01T09:11:46Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="12916" started-at="2017-04-01T09:11:33Z" finished-at="2017-04-01T09:11:46Z">
+      <class name="AssignmentPractice.PimcoreTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:AssignmentPractice.PimcoreTest@51565ec2]" name="setUp" is-config="true" duration-ms="8402" started-at="2017-04-01T02:11:33Z" finished-at="2017-04-01T02:11:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="MenuActions()[pri:0, instance:AssignmentPractice.PimcoreTest@51565ec2]" name="MenuActions" duration-ms="4499" started-at="2017-04-01T02:11:42Z" finished-at="2017-04-01T02:11:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MenuActions -->
+      </class> <!-- AssignmentPractice.PimcoreTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

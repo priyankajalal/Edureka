@@ -1,0 +1,104 @@
+login:
+  email:
+    type: id
+    element: 'user_login'
+  password:
+    type: id
+    element: 'user_pass'
+  submit:
+    type: id
+    element: 'wp-submit'  
+addNewPost:
+  postButton:
+    type: linkText
+    element: Posts
+  addPost:
+    type: cssSelector
+    element: ".add-new-h2"
+  htmlTab:
+    type: id
+    element: 'content-html'
+  postTitle:
+    type: xpath
+    element: "//*[@id='title-prompt-text']"
+  postBody:
+    type: id
+    element: content
+  tagInput:
+    type: id
+    element: 'new-tag-post_tag'
+  addTagButton:
+    type: cssSelector
+    element: ".button.tagadd"
+  savePost:
+    type: xpath
+    element: "//*[@id='save-post']"
+  previewPost:
+    type: cssSelector
+    element: "#preview-action>a"
+checkpost:
+  allPost:    
+    type: cssSelector
+    element: ".wp-first-item.current"
+  baseTable:
+    type: id
+    element: 'the-list'
+  tableRow:
+    type: tagname
+    element: tr
+  foundPost:
+    type: xpath
+    element: "//a[@class='row-title']"
+screenOptions:
+  screenOptions:
+    type: xpath
+    element: "//*[@id='show-settings-link']"
+  categories:
+    type: id
+    element: 'categorydiv-hide'
+  preview:
+    type: id
+    element: 'post-preview'
+searchPost:
+  post:
+    type: id
+    element: Posts
+  searchInputBox:
+    type: id
+    element: 'post-search-input'
+  searchPostButton:
+    type: id
+    element: 'search-submit'
+  baseTable:
+    type: id
+    element: 'the-list'
+  rowTitle:
+    type: xpath
+    element: "//a[@class='row-title']"
+  deletePost:
+    type: xpath
+    element: "//a[@class='submitdelete']"
+trashCheckedPost:
+  allPostsLink:
+    type: cssSelector
+    element: ".wp-first-item.current"
+  titleCheckbox:
+    type: cssSelector
+    element: "#cb>input"
+  bulkAction:
+    type: xpath
+    element: "//*[@id='posts-filter']/div[1]/div[1]/select"
+logout:
+  Howdy:
+    type: xpath
+    element: "//*[@id='wp-admin-bar-my-account']/a"
+  logout:
+    type: xpath
+    element: "//*[@id='wp-admin-bar-logout']/a"  
+    
+      
+                    
+       
+                
+        
+                         

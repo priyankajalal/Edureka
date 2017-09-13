@@ -1,0 +1,15 @@
+package FacebookPageObjectModel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class FriendSearch {
+	
+	WebDriver driver;
+
+	public void search_friend (WebDriver driver){
+		this.driver = driver;
+		driver.findElement(By.xpath("//*[@id='u_jsonp_5_t']"));
+		
+	}
+}

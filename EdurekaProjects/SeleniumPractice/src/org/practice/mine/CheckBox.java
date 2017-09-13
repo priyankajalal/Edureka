@@ -1,0 +1,34 @@
+package org.practice.mine;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CheckBox {
+	
+	WebDriver driver;
+	
+	@Before
+	public void setUp(){
+		driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "C:/softwares/selenium-drivers/chromedriver.exe");		
+	}
+	
+	@Test
+	public void CheckBoxValidate(){
+		driver.get("file:///C:/projects/EdurekaProjects/SeleniumPractice/src/html/CheckBox.html");
+		WebElement cBox = driver.findElement(By.id("cls1"));
+		cBox.click();
+		boolean c1 = cBox.isSelected();
+		System.out.println(c1);
+		
+	}
+	
+	@After
+	public void After(){
+		
+	}
+}

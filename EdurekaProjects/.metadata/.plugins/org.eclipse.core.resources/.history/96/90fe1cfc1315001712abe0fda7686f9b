@@ -1,0 +1,5 @@
+package FacebookPageObjectModel;
+
+public class LogOut {
+
+}

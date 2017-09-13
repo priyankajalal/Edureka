@@ -1,0 +1,228 @@
+package com.edureka.certification.test;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import common.DriverManager;
+import common.LoginPage;
+import common.Screenshot;
+import common.WindowHandle;
+import utils.DriverUtil;
+import utils.JavascriptUtils;
+
+public class ExecuteTest {
+
+	public WebDriver driver;
+
+	@BeforeTest
+	@Parameters("browser")
+	public void setup(String browser) {
+		driver = DriverManager.getDriver(browser);
+		driver.manage().window().maximize();
+	}
+
+	@Test(priority = 1)
+	@Parameters({ "userName", "password", "url", "browser", "postBody", "postTitle", "tags" })
+	public void addNewPostTest(String userName, String password, String url, String browser, String postTitle,
+			String postBody, String tags) throws InterruptedException, IOException {
+
+		driver.manage().window().maximize();
+		driver.get(url);
+
+		LoginPage login = new LoginPage(driver, userName, password, url);
+
+		// Click on Post
+		DriverUtil.getWhenVisible(driver, By.linkText("Posts")).click();
+
+		// Click on Add Post
+		DriverUtil.getWhenVisible(driver, By.cssSelector(".add-new-h2")).click();
+
+		DriverUtil.getWhenVisible(driver, By.id("content-html")).click();
+
+		// Write on title field
+		WebElement titleElement = DriverUtil.getWhenVisible(driver, By.xpath("//*[@id='title-prompt-text']"));
+		DriverUtil.typeText(titleElement, driver, postTitle);
+
+		// Write on post body
+		WebElement postBodyElement = DriverUtil.getWhenVisible(driver, By.id("content"));
+		DriverUtil.typeText(postBodyElement, driver, postBody);
+
+		// Asking for parent Window and saving it in a variable parentHandle
+		String parentHandle = driver.getWindowHandle();
+
+		// Adding Tag to the post
+		DriverUtil.typeText(driver.findElement(By.id("new-tag-post_tag")), driver, tags);
+
+		// Click on Add button
+		driver.findElement(By.cssSelector(".button.tagadd")).click();
+
+		// Screenshot of the Post
+		Screenshot.takeScreenshot(driver);
+
+		// Save post as Draft
+		WebElement saveDraftElement = driver.findElement(By.xpath(".//*[@id='save-post']"));
+		JavascriptUtils.jsClick(driver, saveDraftElement);
+
+		// Preview the Post
+		WebElement previewElement = driver.findElement(By.cssSelector("#preview-action>a"));
+		JavascriptUtils.jsClick(driver, previewElement);
+
+		// Screenshot of the Preview window
+		Screenshot.takeScreenshot(driver);
+
+		Thread.sleep(3000);
+		// Closing other window other than parent window
+		WindowHandle.getWindowHandle(driver, parentHandle);
+
+	}
+
+	// @Test(priority = 2)
+	@Parameters()
+	public void checkPostTest() throws IOException {
+
+		// Click on 'All Post'
+		driver.findElement(By.cssSelector(".wp-first-item.current")).click();
+
+		// Verifying the Post
+		WebElement baseTable = driver.findElement(By.id("the-list"));
+		List<WebElement> tableRows = baseTable.findElements(By.tagName("tr"));
+
+		WebElement foundPost = null;
+		for (WebElement row : tableRows) {
+			if (row.getText().contains("Selenium test2")) {
+				foundPost = row.findElement(By.xpath("//a[@class='row-title']"));
+				break;
+			}
+		}
+		if (foundPost != null) {
+			// Screenshot of the found post
+			Screenshot.takeScreenshot(driver);
+
+			foundPost.click();
+		}
+	}
+
+	// @Test(priority = 3)
+	public void screenOptionsTest() throws InterruptedException, IOException {
+
+		// driver = DriverManager.getDriver(browser);
+
+		WebElement screenOptionsElement = driver.findElement(By.xpath("//*[@id='show-settings-link']"));
+		screenOptionsElement.click();
+
+		WebElement categoriesElement = driver.findElement(By.id("categorydiv-hide"));
+
+		// Uncheck the Category checkbox
+		boolean selected_status = categoriesElement.isSelected();
+		if (selected_status != false) {
+			categoriesElement.click();
+
+			// Screenshot of the Category checkbox in Select option
+			Screenshot.takeScreenshot(driver);
+
+		} else {
+			System.out.println("Categories checkbox already checked");
+		}
+
+		// Asking for parent Window and saving it in a variable parentHandle
+		String parentHandle = driver.getWindowHandle();
+
+		screenOptionsElement.click();
+
+		// Preview the Post
+		WebElement previewElement = driver.findElement(By.id("post-preview"));
+		previewElement.click();
+
+		Thread.sleep(3000);
+
+		// Closing other window other than parent window
+		WindowHandle.getWindowHandle(driver, parentHandle);
+	}
+
+	// @Test(priority = 4)
+	@Parameters("searchInput")
+	public void searchPost(String searchInput) throws IOException {
+
+		// Click on Post
+		DriverUtil.getWhenVisible(driver, By.linkText("Posts")).click();
+
+		// Enter into search input box
+		WebElement searchInputBoxElement = driver.findElement(By.id("post-search-input"));
+		searchInputBoxElement.sendKeys(searchInput);
+
+		// Screenshot of search result
+		Screenshot.takeScreenshot(driver);
+
+		// Click on search post button
+		driver.findElement(By.id("search-submit")).click();
+
+		WebElement baseTable = driver.findElement(By.id("the-list"));
+		baseTable.findElement(By.xpath("//a[@class='row-title']")).click();
+
+		System.out.println("Search Completed");
+
+		// Delete searched post
+		WebElement deletePost = baseTable.findElement(By.xpath("//a[@class='submitdelete']"));
+		JavascriptUtils.jsClick(driver, deletePost);
+	}
+
+	@Test
+	public void trashSeletedPosts() {
+
+		// Click All Posts link
+		WebElement allPostsElement = driver.findElement(By.cssSelector(".wp-first-item.current"));
+		allPostsElement.click();
+
+		// Select Title checkbox
+		WebElement titleCheckboxElement = driver.findElement(By.cssSelector("#cb>input"));
+		titleCheckboxElement.click();
+
+		// Verify Bulk Actions dropdown is ReadOnly
+		WebElement bulkActionElement = driver.findElement(By.xpath("//*[@id='posts-filter']/div[1]/div[1]/select"));
+		bulkActionElement.sendKeys("Delete");
+
+		String bulkActionValue = bulkActionElement.getAttribute("value");
+		if (bulkActionValue.equals("Delete")) {
+			System.out.println("Bulk Action Field is not Readonly.");
+		} else {
+			System.out.println("Bulk Action Field is Readonly.");
+		}
+
+		bulkActionElement.click();
+
+		// Select 'Move to Trash' and click
+		Select select = new Select(bulkActionElement);
+
+		select.selectByVisibleText("Move to Trash");
+
+	}
+
+	// @Test(priority = 5)
+	@Parameters("browser")
+	public void logOut(String browser) throws IOException {
+
+		WebElement logOutElement = driver.findElement(By.xpath("//*[@id='wp-admin-bar-my-account']/a"));
+		Actions actions = new Actions(driver);
+		actions.moveToElement(logOutElement);
+		// System.out.println("Reached till here");
+
+		WebElement logoutElement = driver.findElement(By.xpath("//*[@id='wp-admin-bar-logout']/a"));
+
+		JavascriptUtils.jsClick(driver, logoutElement);
+
+		// Screenshot of logout window
+		Screenshot.takeScreenshot(driver);
+	}
+
+}
